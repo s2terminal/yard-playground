@@ -13,7 +13,7 @@ post '/yard-push' do
 end
 
 get '/yard' do
-  headers 'X-Frame-Options' => NEXT_HOST, 'Access-Control-Allow-Methods' => ['GET']
+  headers 'Access-Control-Allow-Origin' => NEXT_HOST, 'Access-Control-Allow-Methods' => ['GET']
 
   s = "empty"
   File.open('doc/top-level-namespace.html') do |file|
