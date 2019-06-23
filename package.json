@@ -1,0 +1,27 @@
+{
+  "name": "yard-playground",
+  "version": "1.0.0",
+  "description": "```bash $ bundle install --path=vendor/bundle $ bundle exec ruby index.rb ``` open http://localhost:4567/index.html",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s2terminal/yard-playground.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s2terminal/yard-playground/issues"
+  },
+  "homepage": "https://github.com/s2terminal/yard-playground#readme",
+  "dependencies": {
+    "next": "^8.1.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
+}

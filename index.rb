@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'sinatra/reloader' if development?
-
 require 'yard'
 
 get '/yard-push' do
@@ -10,6 +9,8 @@ get '/yard-push' do
 end
 
 get '/yard' do
+  headers 'X-Frame-Options' => 'http://localhost:3000', 'Access-Control-Allow-Methods' => ['GET']
+
   s = "empty"
   File.open('doc/top-level-namespace.html') do |file|
     s = file.read
