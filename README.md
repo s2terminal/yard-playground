@@ -7,4 +7,4 @@ $ npm install --save
 $ npm run dev
 ```
 
-open http://localhost:3000/index.html
+open http://localhost:3000/
