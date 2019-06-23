@@ -79,12 +79,10 @@ class Index extends React.Component<any, State> {
           </Grid>
 
         </form>
-        <p>
-          <ul>
-            <li>about YARD: <a target="blank" href="https://github.com/lsegal/yard">lsegal/yard: YARD is a Ruby Documentation tool. The Y stands for &quot;Yay!&quot;</a></li>
-            <li>about this source code: <a target="blank" href="https://github.com/s2terminal/yard-playground">s2terminal/yard-playground</a></li>
-          </ul>
-        </p>
+        <ul>
+          <li>about YARD: <a target="blank" href="https://github.com/lsegal/yard">lsegal/yard: YARD is a Ruby Documentation tool. The Y stands for &quot;Yay!&quot;</a></li>
+          <li>about this source code: <a target="blank" href="https://github.com/s2terminal/yard-playground">s2terminal/yard-playground</a></li>
+        </ul>
       </>
     );
   }
