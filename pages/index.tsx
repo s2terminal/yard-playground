@@ -1,5 +1,6 @@
-import TextField from '@material-ui/core/TextField';
+import { TextField, Button } from '@material-ui/core';
 import * as React from 'react';
+import fetch from 'isomorphic-unfetch';
 
 const defaultRuby = `# @param [String] name ユーザ名
 # @return [String] password あいさつ
@@ -18,17 +19,39 @@ class Index extends React.Component<any, State> {
     super(props);
     this.state = {ruby: defaultRuby};
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  async pushRuby(ruby: string) {
+    console.log(`${sinatraOrigin}/yard-push`);
+    const data = new FormData();
+    data.append('ruby', ruby);
+
+    const res = await fetch(`${sinatraOrigin}/yard-push`, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: data
+    });
+    location.reload();
   }
 
   handleChange(event) {
     this.setState({ruby: event.target.value});
-  };
+  }
+  handleSubmit() {
+    this.pushRuby(this.state.ruby);
+  }
 
   render() {
     return (
       <>
         <h1>YARD Playground</h1>
-        <form action={`${sinatraOrigin}/yard-push`}>
+        <form>
+          <div>
+            <Button variant="contained" color="primary" onClick={this.handleSubmit}>
+              Submit!
+            </Button>
+          </div>
           <TextField
             id="textfield-ruby"
             name="ruby"
@@ -38,13 +61,9 @@ class Index extends React.Component<any, State> {
             value={this.state.ruby}
             margin="normal"
             onChange={this.handleChange}
-
           />
-          <input type="submit" />
+          <iframe id="iframe-yard" src={`${sinatraOrigin}/yard`} width="640" height="480"></iframe>
         </form>
-
-        <iframe src={`${sinatraOrigin}/yard`} width="640" height="480"></iframe>
-
         <p>
           <a href="https://github.com/lsegal/yard">lsegal/yard: YARD is a Ruby Documentation tool. The Y stands for &quot;Yay!&quot;</a>
         </p>

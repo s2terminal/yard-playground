@@ -2,14 +2,18 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'yard'
 
-get '/yard-push' do
-  File.write('./tmp/index.rb', params['ruby'])
+NEXT_HOST = 'http://localhost:3000'
+
+post '/yard-push' do
+  headers 'Access-Control-Allow-Origin' => NEXT_HOST, 'Access-Control-Allow-Methods' => ['POST']
+
+  File.write('./tmp/index.rb', params[:ruby])
   YARD::CLI::Yardoc.run(['./tmp/index.rb'])
-  params['ruby'] + "が渡されました。戻ってみてね"
+  params[:ruby] + "が渡されました。戻ってみてね"
 end
 
 get '/yard' do
-  headers 'X-Frame-Options' => 'http://localhost:3000', 'Access-Control-Allow-Methods' => ['GET']
+  headers 'X-Frame-Options' => NEXT_HOST, 'Access-Control-Allow-Methods' => ['GET']
 
   s = "empty"
   File.open('doc/top-level-namespace.html') do |file|
