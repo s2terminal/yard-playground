@@ -4,4 +4,4 @@
 $ bundle install --path=vendor/bundle
 $ bundle exec ruby index.rb
 ```
-open http://localhost:4567/
+open http://localhost:4567/index.html
