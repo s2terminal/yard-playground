@@ -6,3 +6,4 @@ gem "sinatra", "~> 2.0"
 gem 'sinatra-contrib'
 
 gem "yard"
+gem "foreman"
