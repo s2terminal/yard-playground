@@ -10,8 +10,7 @@ open http://localhost:3000/
 ### without Docker
 
 ```bash
-$ bundle install --path=vendor/bundle
-$ bundle exec ruby pages/index.rb
 $ npm install --save
-$ npm run dev
+$ bundle install --path=vendor/bundle
+$ bundle exec foreman start
 ```
